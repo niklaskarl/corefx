@@ -22,6 +22,12 @@ namespace System.Linq
                 return collectionoft.Count;
             }
 
+            IReadOnlyCollection<TSource> readOnlyCollection = source as IReadOnlyCollection<TSource>;
+            if (readOnlyCollection != null)
+            {
+                return readOnlyCollection.Count;
+            }
+
             IIListProvider<TSource> listProv = source as IIListProvider<TSource>;
             if (listProv != null)
             {
